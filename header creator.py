@@ -5,9 +5,11 @@ def parser(target_file,destination_file):
         line=line.strip()
         if line.startswith("#"):
             if line.endswith("\""):
-                ds.write(line[line.find('\"')+1:line.find("\"",line.find("\"")+1)]+"\n")#selects till the ' " ' charcter
+                line=line[line.find('\"')+1:line.find("\"",line.find("\"")+1)]
+                if line not in ds: ds.write(line+"\n")#selects till the ' " ' charcter
             elif line.endswith(">"):
-                ds.write(line[line.find('<')+1:-1]+"\n") #selects till end of line
+                line=line[line.find('<')+1:-1]
+                if line not in ds: ds.write(line+"\n") #selects till end of line
 
 import os
 import glob
@@ -26,4 +28,3 @@ for file in fileList:
     print()
     parser(file,folder_path+"\\headers.h")
 print("Creation sucessfull..")
-
