@@ -15,9 +15,3 @@ fileList = [f for f in glob.glob("*.c")] + [f for f in glob.glob("*.cpp")]
 for file in fileList:
     print()
     parser(file,"headers.h")
-
-# foi=[]
-# for file in files:
-#     if str(file).endswith(".c") or str(file).endswith(".cpp"):
-#         foi = foi +str (file)
-# print(foi)
