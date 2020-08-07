@@ -12,7 +12,9 @@ def parser(target_file,destination_file):
 
 import glob
 fileList = [f for f in glob.glob(folder+"\\*.c")] + [f for f in glob.glob(folder+"\\*.cpp")]
-
+if not fileList:
+    print("No files found!!")
+    quit()
 for file in fileList:
     print()
     parser(file,"headers.h")
